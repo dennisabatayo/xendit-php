@@ -45,12 +45,15 @@ class Disbursements
      */
     public static function createReqParams()
     {
-        return ['external_id',
-            'bank_code',
-            'account_holder_name',
+        return [
+            'reference_id',
+            'channel_code',
+            'account_name',
             'account_number',
             'description',
-            'amount'];
+            'amount',
+            'currency'
+        ];
     }
 
     /**
@@ -140,7 +143,7 @@ class Disbursements
      */
     public static function getAvailableBanks()
     {
-        $url = '/available_disbursements_banks';
+        $url = '/disbursement-channels';
         return static::_request('GET', $url);
     }
 }

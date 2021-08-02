@@ -1,4 +1,4 @@
-# Xendit API PHP Client
+# Xendit API PHP Client [Philippines]
 
 This library is the abstraction of Xendit API for access from applications written with PHP.
 

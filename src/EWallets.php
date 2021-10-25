@@ -109,7 +109,7 @@ class EWallets
 
         $url = static::classUrl() . '/charges';
 
-        return static::_request("POST", $url, $params);
+        return static::_request('POST', $url, $params);
     }
 
     /**
@@ -121,11 +121,28 @@ class EWallets
      * https://developers.xendit.co/api-reference/?bash#get-ewallet-charge-status
      * @throws Exceptions\ApiException
      */
-    public static function getEWalletChargeStatus($charge_id, $params=[])
+    public static function getEWalletChargeStatus($charge_id, $params = [])
     {
         $url = static::classUrl()
             . '/charges/' . $charge_id;
 
         return static::_request('GET', $url, $params);
+    }
+
+    /**
+     * Void e-wallet charge
+     *
+     * @param string $charge_id charge ID
+     *
+     * @return array please check for responses parameters here
+     * https://developers.xendit.co/api-reference/?bash#get-ewallet-charge-status
+     * @throws Exceptions\ApiException
+     */
+    public static function voidEWalletCharge($charge_id, $params = [])
+    {
+        $url = static::classUrl()
+            . '/charges/' . $charge_id . '/void';
+
+        return static::_request('POST', $url, $params);
     }
 }

@@ -145,4 +145,21 @@ class EWallets
 
         return static::_request('POST', $url, $params);
     }
+
+    /**
+     * Refund e-wallet charge
+     *
+     * @param string $charge_id charge ID
+     *
+     * @return array please check for responses parameters here
+     * https://developers.xendit.co/api-reference/?bash#refund-ewallet-charge
+     * @throws Exceptions\ApiException
+     */
+    public static function refundEWalletCharge($charge_id, $params = [])
+    {
+        $url = static::classUrl()
+            . '/charges/' . $charge_id . '/refunds';
+
+        return static::_request('POST', $url, $params);
+    }
 }
